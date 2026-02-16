@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VICKEM MODEL SCHOOL</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #059e1f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .form-container {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 95%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #059e1f;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #059e1f;
+        }
+
+        footer {
+            background-color: #059e1f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>VICKEM MODEL SCHOOL</h1>
+    <p>Motto: nothing but the best</p>
+</header>
+
+<section>
+    <h2>Student Registration</h2>
+
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Student Name">
+        <input type="text" id="class" placeholder="Class">
+        <input type="text" id="phone" placeholder="Parent Phone Number">
+
+        <button onclick="registerStudent()">Submit</button>
+
+        <p id="message"></p>
+    </div>
+    <h3>Registered Students</h3>
+<ul id="studentList"></ul>
+</section>
+
+<footer>
+    <p>© 2026 Vickem model School | All Rights Reserved
+</footer>
+
+<script>
+function registerStudent() {
+    let name = document.getElementById("name").value;
+    let studentClass = document.getElementById("class").value;
+    let phone = document.getElementById("phone").value;
+
+    if (name === "" || studentClass === "" || phone === "") {
+        document.getElementById("message").innerHTML = "Please fill all fields!";
+        document.getElementById("message").style.color = "red";
+    } else {
+        document.getElementById("message").innerHTML = "Registration Successful!";
+        document.getElementById("message").style.color = "green";
+
+        let studentList = document.getElementById("studentList");
+        let li = document.createElement("li");
+        li.textContent = name + " - " + studentClass + " - " + phone;
+        studentList.appendChild(li);
+
+        // Clear input fields
+        document.getElementById("name").value = "";
+        document.getElementById("class").value = "";
+        document.getElementById("phone").value = "";
+    }
+}
+</script>
+</body>
+</html>
